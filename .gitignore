@@ -30,3 +30,4 @@ next-env.d.ts
 # tests
 tests
 a.txt
+package-lock.json
