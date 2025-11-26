@@ -120,7 +120,21 @@ export default function RootLayout({
               `}
             </Script>
           </>
-        )}
+        )}{/* Google Ads (AW-16859467972) */}
+<Script
+  src="https://www.googletagmanager.com/gtag/js?id=AW-16859467972"
+  strategy="afterInteractive"
+/>
+
+<Script id="google-ads-init" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16859467972');
+  `}
+</Script>
+
 
         {/* Facebook Pixel */}
         {fbPixel && (
