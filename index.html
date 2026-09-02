@@ -15,18 +15,31 @@
     gtag('config', 'G-ECTPW8Y6VQ');
     gtag('config', 'AW-16859467972');
 
-    function gtag_report_conversion() {
+    function gtag_report_conversion(url) {
+      let redirected = false;
+      const callback = function () {
+        if (typeof url !== 'undefined' && !redirected) {
+          redirected = true;
+          window.location = url;
+        }
+      };
+
       gtag('event', 'conversion', {
         'send_to': 'AW-16859467972/TTcCCKCHq6IbEMShnOc-',
         'value': 1.0,
-        'currency': 'BRL'
+        'currency': 'BRL',
+        'event_callback': callback
       });
-      return true;
+
+      setTimeout(callback, 2000);
+      return false;
     }
 
     document.addEventListener('click', function (event) {
       const whatsappLink = event.target.closest('a[href*="wa.me"]');
-      if (whatsappLink) gtag_report_conversion();
+      if (!whatsappLink) return;
+      event.preventDefault();
+      gtag_report_conversion(whatsappLink.href);
     });
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
