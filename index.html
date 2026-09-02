@@ -13,6 +13,21 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-ECTPW8Y6VQ');
+    gtag('config', 'AW-16859467972');
+
+    function gtag_report_conversion() {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-16859467972/TTcCCKCHq6IbEMShnOc-',
+        'value': 1.0,
+        'currency': 'BRL'
+      });
+      return true;
+    }
+
+    document.addEventListener('click', function (event) {
+      const whatsappLink = event.target.closest('a[href*="wa.me"]');
+      if (whatsappLink) gtag_report_conversion();
+    });
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
